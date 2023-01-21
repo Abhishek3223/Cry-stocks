@@ -1,0 +1,66 @@
+.search-coins-list {
+  background-color: #ffd700;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  width: 100%;
+  height: 4rem;
+  overflow: hidden;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.searchcoin {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 12rem;
+  height: 15rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  color: white;
+  background-color: black;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+.searchcoin:hover {
+  transform: scale(1.1);
+}
+.like-btn {
+  width: 3rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 10px;
+}
+.like-btn:hover {
+  background-color: #ffd700;
+  transform: scale(1.5);
+}
+.searchcoin .flex-item {
+  width: 5rem;
+  vertical-align: middle;
+
+  /* background-color: blue; */
+}
+.searchcoin .coin-image {
+  width: 3.5rem;
+}
+img {
+  width: 100%;
+}

@@ -1,0 +1,68 @@
+.chartPart {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  width: 100vw;
+  height: 85vh;
+  flex-wrap: wrap;
+  /* padding-left: 20%; */
+  /* padding: 0% 10% 0% 10%; */
+  /* border: 2px solid #ffd700; */
+  background-color: #282c34;
+}
+.chartPart > .details {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+
+  border-radius: 10px;
+  height: 70vh;
+  margin-right: 10px;
+  background-color: #212529;
+  width: 23vw;
+}
+.details-title {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* border: 1px solid #ffd700; */
+}
+.details > img {
+  width: 18vh;
+  margin: 20px;
+  margin-bottom: 0px;
+}
+.col {
+  text-align: center;
+  color: aliceblue;
+  background-color: #282c34;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.green{
+  color: greenyellow;
+}
+.details-title {
+  margin: 15px;
+  text-align: center;
+  margin-right: 0px;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+}
+.Chart {
+  border: 1px solid #ffd700;
+
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1%; */
+  background-color: #282c34;
+  /* background-color: rgba(75,192,192,1); */
+  /* border: 2px solid rgb(220, 33, 33); */
+  width: 70vw;
+  height: 70vh;
+}
