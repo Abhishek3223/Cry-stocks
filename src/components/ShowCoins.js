@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const ShowCoins = ({ coindetails }) => {
   const navigate = useNavigate();
   const { SetChartID, setcoinDetails } = useContext(AllContext)
-  
+
 
 
   const showFull = (k) => {
@@ -14,7 +14,7 @@ const ShowCoins = ({ coindetails }) => {
       img: coindetails.image,
       name: coindetails.name,
       id: coindetails.id,
-      rank:coindetails.MarketCapRank,
+      rank: coindetails.MarketCapRank,
       currentPrice: coindetails.currentPrice,
       Change: Math.round((coindetails.priceChange + Number.EPSILON) * 10000) / 10000
     })
@@ -26,9 +26,9 @@ const ShowCoins = ({ coindetails }) => {
     <div className='coin' onClick={() => showFull(coindetails.id)}>
       <div className='flex-item coin-image' ><img src={coindetails.image} alt={coindetails.id} /></div >
       <div className='' >{coindetails.name}</div >
-      <div className='' >{coindetails.currentPrice}$</div >
+      <div className='Wer2gh' >{coindetails.currentPrice}$</div >
       <div  >{coindetails.MarketCapRank}</div >
-      <div>{Math.round((coindetails.priceChange + Number.EPSILON) * 10000) / 10000}$</div >
+      <div className='Wer2gh'>{Math.round((coindetails.priceChange + Number.EPSILON) * 10000) / 10000}$</div >
     </div>
   )
 }

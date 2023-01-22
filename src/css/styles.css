@@ -27,6 +27,11 @@
   justify-content: center;
   align-items: center;
 }
+.about-details > p {
+  padding-inline-start: 0% 10% 30% 10%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 .image-header {
   background-color: black;
   display: flex;
