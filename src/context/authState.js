@@ -18,9 +18,9 @@ const ALLState = (props) => {
     })
 
     const Login = async (credentials) => {
-        console.log(credentials);
+        // console.log(credentials);
 
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch("http://localhost:5000/api/auth/Login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,10 +37,12 @@ const ALLState = (props) => {
         const json = await response.json()
         if (json.Success) {
             setloginStatus(true)
-            //ActivateAlert("Succesfully loged in", "success")
+            alert('welcome')
+            // ActivateAlert("Succesfully loged in", "success")
         }
         else {
-            //ActivateAlert("Invalid Credentials", "warning")
+            alert('INvalid creation')
+            // ActivateAlert("Invalid Credentials", "warning")
         }
         console.log(json);
         return json

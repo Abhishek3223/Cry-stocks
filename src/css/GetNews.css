@@ -15,12 +15,12 @@
   align-items: center;
 }
 .readmore {
-  background-color: #ffd700;
+  background-color: black;
   border: none;
 }
 .readmore:hover {
-  background-color: black;
-  color: #ffd700;
+  background-color: #ffd700;
+  color:black;
 }
 .card {
   background-color: #ffd700;

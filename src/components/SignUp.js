@@ -1,69 +1,97 @@
-// import React from 'react'
+import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import AllContext from '../context/Context'
+import '../css/login.css'
+import { Cross, Mail } from '../images/image'
 
-// const SignUp = () => {
-//     return (
-//         // <div>
+const SignUp = (props) => {
 
-//         <section class="vh-100" style={{"background-color": "#fff"}}>
-//             <div class="container h-100">
-//                 <div class="row d-flex justify-content-center align-items-center h-100">
-//                     <div class="col-lg-12 col-xl-11">
-//                         <div class="card text-black" style={{"border-radius": "25px"}}>
-//                             <div class="card-body p-md-5">
-//                                 <div class="row justify-content-center">
-//                                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+    const navigate = useNavigate();
+    const context = useContext(AllContext)
 
-//                                         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+    const { SignUp } = context;
 
-//                                         <form action="/register" method="POST" class="mx-1 mx-md-4">
+    const gobacktoHome = () => {
+        navigate('/login');
+    }
 
-//                                             <div class="d-flex flex-row align-items-center mb-4">
-//                                                 <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-//                                                 <div class="form-outline flex-fill mb-0">
-//                                                     <input type="email" id="form3Example3c" class="form-control" name="username" />
-//                                                     <label class="form-label" for="form3Example3c">Your Email</label>
-//                                                 </div>
-//                                             </div>
-
-//                                             <div class="d-flex flex-row align-items-center mb-4">
-//                                                 <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-//                                                 <div class="form-outline flex-fill mb-0">
-//                                                     <input type="password" id="form3Example4c" class="form-control" name="password" />
-//                                                     <label class="form-label" for="form3Example4c">Password</label>
-//                                                 </div>
-//                                             </div>
-
-//                                             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-//                                                 <button type="submit" class="btn btn-dark btn-lg">Register</button>
-//                                             </div>
+    const [credentials, setCredentials] = useState({ email: "", password: "", name: "" })
 
 
-//                                         </form>
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-//                                     </div>
-//                                     <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+        console.log("submit button has been clciked")
+        const json = await SignUp(credentials)
+        console.log(json)
+        if (json.Success) {
+            alert("succcessfully Loged In success")
+            navigate('/login')
+        }
+        else {
 
-//                                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-//                                             class="img-fluid" alt="Sample image" />
+            alert(" danger")
+        }
+    }
 
-//                                     </div>
-//                                     <a class="btn btn-block" href="/auth/google" role="button">
-//                                         <i class="fab fa-lg fa-google"></i>
-//                                         &nbspSign Up with Google
-//                                     </a>
+    const change = (e) => {
+        setCredentials({
+            ...credentials, [e.target.name]: [e.target.value]
+        })
+        console.log(credentials)
+    }
+    return (
+        <div className='loginpage'>
+            <div className={"session"}>
 
-//                                 </div>
+                <div className="left">
+                    {/* <Cross /> */}
+                </div>
 
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>
+                <form onSubmit={handleSubmit} action="" className="log-in" >
+                    <div className="cross" onClick={gobacktoHome}>
+                        <Cross />
+                    </div>
+                    <h4> Hi We are <span>Scraper</span></h4>
+                    <p>We welcome you to our communitie</p>
+                    <div className="floating-label">
+                        <input placeholder="Email" type="email" name="email" id="email" onChange={change} />
+                        <label htmlFor="email">Email:</label>
 
+                        <div className="icon">
+                            <Mail />
+                        </div>
 
+                    </div>
+                    <div className="floating-label">
+                        <input placeholder="Username" type="text" name="name" id="name" onChange={change} />
+                        <label htmlFor="email">UserName</label>
 
-//     )
-// }
+                        <div className="icon">
+                            <Mail />
+                        </div>
 
-// export default SignUp
+                    </div>
+                    <div className="floating-label">
+                        <input placeholder="Password" type="password" name="password" id="password" onChange={change} />
+                        <label htmlFor="password">Password:</label>
+                        <div className="icon">
+
+                            <Cross />
+                        </div>
+
+                    </div>
+                    <button className='button' type="submit" >
+                        Create
+                    </button>
+                    {/* <Link to='/login' >
+            <p className="dont-have-acnt">Create one ?</p>
+          </Link> */}
+                </form>
+            </div>
+
+        </div>
+    )
+}
+
+export default SignUp

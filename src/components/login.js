@@ -1,72 +1,89 @@
-// import React, { useContext, useState } from 'react'
-// import AllContext from "../context/Context";
-// import { Link, useNavigate } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import AllContext from '../context/Context'
+import '../css/login.css'
+import { Cross, Mail } from '../images/image'
 
-// const Login = () => {
-//     const navigate = useNavigate();
-//     const { Login } = useContext(AllContext);
-//     const [credentials, setCredentials] = useState({ email: "", password: "" })
+const Login = (props) => {
 
-//     const handleSubmit = () => {
+    const navigate = useNavigate();
+    const context = useContext(AllContext)
 
-//         Login(credentials);
-//     };
-//     const change = (e) => {
-//         setCredentials({
-//             ...credentials, [e.target.name]: [e.target.value]
-//         })
-//         // console.log(credentials)
-//     }
+    const { setloginStatus, Login } = context;
 
-//     return (
-//         <div>
-//             <section class="vh-100">
-//                 <div class="container-fluid">
-//                     <div class="row">
-//                         <div class="col-sm-6 text-black">
+    const gobacktoHome = () => {
+        navigate('/');
+    }
 
-//                             <div class="px-5 ms-xl-4">
-//                                 <i class="fa-solid fa-lock fa-2x me-3 pt-5 mt-xl-4" style={{ "color": "#709085" }}></i>
-//                                 <span class="h1 fw-bold mb-0">crystock</span>
-//                             </div>
+    const [credentials, setCredentials] = useState({ email: "", password: "" })
 
 
-//                             <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-1 pt-5 pt-xl-0 mt-xl-n5">
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-//                                 <form action="/login" method="POST" style={{ "width": "23rem" }}>
+        console.log("submit button has been clciked")
+        const json = await Login(credentials)
+        console.log(json)
+        if (json.Success) {
+            localStorage.setItem('token', json.AUTH_TOKEN);
+            // setloginStatus(true)
+            navigate('/')
 
-//                                     <h3 class="fw-normal mb-3 pb-3" style={{ "letter-spacing": "1px" }}>Log in</h3>
+        }
 
-//                                     <div class="form-outline mb-4">
-//                                         <input type="email" id="form2Example18" class="form-control form-control-lg" name="email" onChange={change} />
-//                                         <label class="form-label" for="form2Example18">Email address</label>
-//                                     </div>
+    }
 
-//                                     <div class="form-outline mb-4">
-//                                         <input onChange={change} type="password" id="form2Example28" class="form-control form-control-lg" name="password" />
-//                                         <label class="form-label" for="form2Example28">Password</label>
-//                                     </div>
+    const change = (e) => {
+        setCredentials({
+            ...credentials, [e.target.name]: [e.target.value]
+        })
+        // console.log(credentials)
+    }
+    return (
+        <div className='loginpage'>
+            <div className="session"  >
 
-//                                     <div class="pt-1 mb-4">
-//                                         <button class="btn btn-info btn-lg btn-dark btn-block" type="submit" onClick={handleSubmit}>Login</button>
-//                                         <a class="btn btn-block" href="/auth/google" role="button">
-//                                             <i class="fab fa-google"></i>
-//                                         </a>
-//                                     </div>
+                <div className="left">
+                    {/* <Cross /> */}
+                </div>
 
-//                                     <p>Don't have an account? <Link to="/Signup" class="link-info">Register here</Link></p>
+                <form onSubmit={handleSubmit} action="" className="log-in" >
+                    <div className="cross" onClick={gobacktoHome}>
+                        <Cross />
+                    </div>
+                    <h4> Hi We are <span>Scraper</span></h4>
+                    <p>Welcome back! Log in to your account to view today's clients:</p>
+                    <div className="floating-label">
+                        <input placeholder="Email" type="email" name="email" id="email" onChange={change} />
+                        <label htmlFor="email">Email:</label>
 
-//                                 </form>
+                        <div className="icon">
+                            <Mail />
+                        </div>
 
-//                             </div>
+                    </div>
+                    <div className="floating-label">
+                        <input placeholder="Password" type="password" name="password" id="password" onChange={change} />
+                        <label htmlFor="password">Password:</label>
+                        <div className="icon">
 
-//                         </div>
+                            <Cross />
+                            {/* <i class="fa-regular fa-lock"></i> */}
+                        </div>
 
-//                     </div>
-//                 </div>
-//             </section >
-//         </div >
-//     )
-// }
+                    </div>
+                    <button className='button' type="submit" >
+                        Log in
+                    </button>
+                    <Link >
+                        {/* onClick={navigate('/signup')} */}
+                        <p className="dont-have-acnt">Create one ?</p>
+                    </Link>
+                </form>
+            </div>
 
-// export default Login
+        </div >
+    )
+}
+
+export default Login

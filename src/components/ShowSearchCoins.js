@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ShowSearchCoins = ({ coindetails }) => {
   const navigate = useNavigate();
-  const { SetChartID, setcoinDetails } = useContext(AllContext)
+  const { ChartID, SetChartID, setcoinDetails } = useContext(AllContext)
 
 
 
@@ -18,7 +18,16 @@ const ShowSearchCoins = ({ coindetails }) => {
       Change: Math.round((coindetails.priceChange + Number.EPSILON) * 10000) / 10000
     })
     SetChartID(k)
-    console.log(k);
+    localStorage.setItem('token', ChartID)
+
+    console.log({
+      img: coindetails.image,
+      name: coindetails.name,
+      id: coindetails.id,
+      rank: coindetails.MarketCapRank,
+      currentPrice: coindetails.currentPrice,
+      Change: Math.round((coindetails.priceChange + Number.EPSILON) * 10000) / 10000
+    });
     navigate('/fullchart')
   }
   return (

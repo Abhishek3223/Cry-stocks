@@ -23,12 +23,10 @@ const GraphArea = () => {
                         ${coinDetails.currentPrice}
                         <span className='green'> {coinDetails.change}</span>
                     </p>
-                    {/* <p className="col">
 
-                    </p> */}
 
                 </div>
-                {/* </div> */}
+
             </div>
             <div className="Chart">
                 <Chart id='bitcoin' />

@@ -18,7 +18,7 @@ const ShowCoins = ({ coindetails }) => {
       currentPrice: coindetails.currentPrice,
       Change: Math.round((coindetails.priceChange + Number.EPSILON) * 10000) / 10000
     })
-    SetChartID(k)
+    SetChartID(k);
     console.log(k);
     navigate('/fullchart')
   }
