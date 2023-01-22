@@ -56,8 +56,8 @@
     color: lightgrey;
 }
 .coin{
-    width: 35rem;
-    margin: 0.5rem;
+    width: 70%;
+    /* margin: 0.5rem; */
     padding-left: 1rem;
     padding-right: 1rem;
     display: flex;
@@ -65,11 +65,16 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     font-size: 1.4rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     /* padding: rem; */
     margin:1rem;
     padding-bottom: 0.5rem;
     border-bottom:2px solid #ffffff;
     
+}
+.coin:hover{
+    background-color:#181D31;
 }
 .coin .flex-item{
     
