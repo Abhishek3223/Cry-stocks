@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import '../css/searchCoins.css'
 import ShowSearchCoins from "./ShowSearchCoins";
+import Welcome from './Welcome';
+
 const SearchCoins = () => {
   const [title, settitle] = useState("");
   const [searchedCoins, setSearchedCoins] = useState([]);
@@ -24,13 +26,18 @@ const SearchCoins = () => {
         id: c.id,
         image: c.large,
         MarketCapRank: c.market_cap_rank,
+        currentPrice: c.current_price,
+        priceChange: c.price_change_24h,
+
       };
     });
     setSearchedCoins(result);
   };
   return (
     <div>
+      <Welcome />
       <div className="search-bar-container">
+        <h1 style={{ "color": "black", "fontSize": "4rem", "textAlign": "center" }}># Discover</h1>
         <form onSubmit={handleOnSubmit} className='form'>
           <input
             onChange={handleOnChange}
@@ -42,7 +49,7 @@ const SearchCoins = () => {
       </div>
       <div className="search-coins-list">
         {searchedCoins.slice(0, 5).map((c) => {
-          return <ShowSearchCoins key={c.id}  coindetails={c} />;
+          return <ShowSearchCoins key={c.id} coindetails={c} />;
         })}
       </div>
 

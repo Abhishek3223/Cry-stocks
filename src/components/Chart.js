@@ -12,7 +12,7 @@ import AllContext from "../context/Context";
 const Chart = (props) => {
     const [labelData, setlabel] = useState([]);
     const [priceData, setprice] = useState([]);
-    const { ChartID } = useContext(AllContext)
+    const { ChartID, coinDetails, setcoinDetails } = useContext(AllContext)
 
     const GetData = async () => {
         // post req for getting theuser info
@@ -27,6 +27,7 @@ const Chart = (props) => {
         // console.log(json.prices);
         return json
     }
+
     const label = []
     const price = []
     useEffect(() => {
@@ -41,7 +42,17 @@ const Chart = (props) => {
             });
             setlabel(label)
             setprice(price)
-
+            const img_ = coinDetails.image
+            const name = coinDetails.name
+            const id = coinDetails.id
+            const rank = coinDetails.rank
+            setcoinDetails({
+                img: img_,
+                name: name,
+                id: id,
+                rank: rank,
+                currentPrice: price[0]
+            })
         }
     }, [])
 

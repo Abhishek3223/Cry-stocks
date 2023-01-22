@@ -64,3 +64,13 @@
 img {
   width: 100%;
 }
+.form > input {
+  width: 70vw;
+}
+.search-bar-container {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
