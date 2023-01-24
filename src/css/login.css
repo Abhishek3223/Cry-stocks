@@ -53,7 +53,7 @@ label {
   opacity: 0.8;
   font-weight: 400;
 }
-form {
+.session > form {
   padding: 40px 30px;
   background: #fefefe;
   display: flex;

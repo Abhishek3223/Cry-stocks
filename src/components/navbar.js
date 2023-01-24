@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className='Navbar' style={{ 'width': '100vw', 'zIndex': "10" }}>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3" style={{ 'height': '10vh' }}>
                 <div class="container-fluid">
-                    <Link class="navbar-brand" href="#">
+                    <Link class="navbar-brand" to='/' href="#">
                         <span className="logo" style={{ "fontSize": "40px" }}>cry.</span>
                         <span className="stylish" style={{ "color": "#ffd700", "fontSize": "30px" }}>STOCK</span>
                     </Link>
